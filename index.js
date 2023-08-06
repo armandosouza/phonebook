@@ -8,6 +8,7 @@ let notes = require('./notes')
 morgan.token('content', function (request, response) { return JSON.stringify(request.body) })
 
 //middlewares
+app.use(express.static('build'))
 app.use(express.json())
 app.use(morgan(':method :url :status :http-version - :response-time ms :content'))
 app.use(cors())
